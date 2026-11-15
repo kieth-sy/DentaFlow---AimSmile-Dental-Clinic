@@ -1,0 +1,572 @@
+.btn-primary-blue {
+  background: var(--nm-blue) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: var(--nm-radius-pill) !important;
+  border: none !important;
+  box-shadow: 3px 3px 10px rgba(46, 104, 219, 0.4) !important;
+  padding: 0.55rem 1.35rem !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+.btn-primary-blue:hover {
+  background: var(--nm-blue-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 4px 5px 14px rgba(46, 104, 219, 0.5) !important;
+  color: #ffffff !important;
+}
+
+.btn-primary-blue:active {
+  transform: translateY(0);
+}
+
+.nm-cal-card {
+  background: var(--nm-bg);
+  border-radius: var(--nm-radius-card);
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat);
+  padding: 1.35rem;
+  position: relative;
+}
+
+.nm-cal-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.nm-cal-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nm-nav-circle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--nm-bg);
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nm-text-sub);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.nm-nav-circle-btn:hover {
+  color: var(--nm-blue);
+  box-shadow: var(--nm-flat);
+}
+
+.nm-cal-range-text {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--nm-text-dark);
+  margin: 0 0.25rem;
+}
+
+.nm-cal-today-btn {
+  border: var(--nm-border);
+  background: var(--nm-bg);
+  box-shadow: var(--nm-flat-sm);
+  border-radius: var(--nm-radius-pill);
+  padding: 0.25rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--nm-blue);
+  cursor: pointer;
+}
+
+.nm-cal-today-btn:hover {
+  box-shadow: var(--nm-flat);
+}
+
+.nm-cal-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--nm-radius-sm);
+  background: var(--nm-bg);
+  scrollbar-width: none;
+}
+
+.nm-cal-table-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.nm-cal-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;
+}
+
+.nm-cal-table th {
+  padding: 0.65rem 0.4rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--nm-text-dark);
+  border-bottom: 1px solid rgba(195, 207, 222, 0.45);
+}
+
+.nm-cal-table th.th-time {
+  text-align: left;
+  padding-left: 0.6rem;
+  width: 65px;
+  color: var(--nm-text-muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.nm-cal-table th.th-highlight {
+  color: var(--nm-blue);
+}
+
+.nm-cal-table th.th-highlight .th-day-num {
+  color: var(--nm-blue);
+  font-weight: 800;
+}
+
+.th-day-lbl {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--nm-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.th-day-num {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--nm-text-dark);
+}
+
+.nm-cal-table td {
+  height: 48px;
+  border: 1px solid rgba(195, 207, 222, 0.35);
+  padding: 3px 4px;
+  vertical-align: top;
+  position: relative;
+}
+
+.nm-cal-table td.td-time-lbl {
+  border: none;
+  border-right: 1px solid rgba(195, 207, 222, 0.35);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--nm-text-muted);
+  padding-left: 0.6rem;
+  padding-top: 4px;
+  width: 65px;
+  height: 48px;
+}
+
+.cal-appt-chip {
+  border-radius: 8px;
+  padding: 3px 6px;
+  font-size: 0.7rem;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: block;
+  text-decoration: none !important;
+  margin-bottom: 2px;
+}
+
+.cal-appt-chip .chip-time {
+  font-weight: 700;
+  font-size: 0.65rem;
+  display: block;
+}
+
+.cal-appt-chip .chip-service {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.cal-appt-chip.chip-selected {
+  background: #e2edfa !important;
+  border: 1.5px solid #2e68db !important;
+  color: #2e68db !important;
+  box-shadow: 2px 2px 8px rgba(46, 104, 219, 0.25) !important;
+}
+
+.cal-appt-chip.chip-blue {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-left: 3px solid #0ea5e9;
+}
+
+.cal-appt-chip.chip-amber {
+  background: #fef3c7;
+  color: #b45309;
+  border-left: 3px solid #f59e0b;
+}
+
+.cal-appt-chip.chip-purple {
+  background: #f3e8ff;
+  color: #7e22ce;
+  border-left: 3px solid #a855f7;
+}
+
+.cal-appt-chip.chip-rose {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-left: 3px solid #ef4444;
+}
+
+.cal-appt-chip.chip-green {
+  background: #dcfce7;
+  color: #15803d;
+  border-left: 3px solid #22c55e;
+}
+
+.cal-appt-chip.chip-pink {
+  background: #fce7f3;
+  color: #be185d;
+  border-left: 3px solid #ec4899;
+}
+
+.cal-appt-chip.chip-teal {
+  background: #ccfbf1;
+  color: #0f766e;
+  border-left: 3px solid #14b8a6;
+}
+
+.cal-appt-chip.chip-orange {
+  background: #ffedd5;
+  color: #c2410c;
+  border-left: 3px solid #f97316;
+}
+
+.cal-appt-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nm-cal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.9rem;
+  font-size: 0.72rem;
+  color: var(--nm-text-muted);
+}
+
+.nm-cal-footer .legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--nm-blue);
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.nm-details-card {
+  background: var(--nm-bg);
+  border-radius: var(--nm-radius-card);
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 440px;
+}
+
+.nm-details-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.nm-details-heading {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  color: var(--nm-text-muted);
+}
+
+.nm-details-patient {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--nm-text-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.nm-details-sub {
+  font-size: 0.74rem;
+  color: var(--nm-text-muted);
+  margin-top: 0.2rem;
+  margin-bottom: 0.85rem;
+}
+
+.nm-service-pill {
+  display: inline-block;
+  background: #e0ebf8;
+  color: var(--nm-blue);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--nm-radius-pill);
+  margin-bottom: 1.35rem;
+  border: var(--nm-border);
+}
+
+.nm-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.nm-info-row i {
+  font-size: 1.05rem;
+  color: var(--nm-blue);
+  margin-top: 2px;
+}
+
+.nm-info-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--nm-text-dark);
+  line-height: 1.25;
+}
+
+.nm-info-sub {
+  font-size: 0.72rem;
+  color: var(--nm-text-muted);
+  margin-top: 2px;
+}
+
+.nm-details-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.nm-records-card {
+  background: var(--nm-bg);
+  border-radius: var(--nm-radius-card);
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat);
+  padding: 1.5rem;
+}
+
+.nm-records-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nm-records-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--nm-text-dark);
+  margin: 0;
+}
+
+.nm-records-subtitle {
+  font-size: 0.75rem;
+  color: var(--nm-text-muted);
+  margin-top: 0.2rem;
+}
+
+.nm-records-filter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.nm-inset-input-wrap {
+  position: relative;
+}
+
+.nm-inset-input-wrap i {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--nm-text-muted);
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.nm-inset-input {
+  background: var(--nm-bg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--nm-radius-pill);
+  box-shadow: var(--nm-inset-sm);
+  padding: 0.45rem 1rem 0.45rem 2.2rem;
+  font-size: 0.8rem;
+  color: var(--nm-text-dark);
+  outline: none;
+  min-width: 220px;
+}
+
+.nm-inset-input:focus {
+  box-shadow: var(--nm-inset);
+  border-color: rgba(46, 104, 219, 0.4);
+}
+
+.nm-inset-select {
+  background: var(--nm-bg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--nm-radius-pill);
+  box-shadow: var(--nm-inset-sm);
+  padding: 0.45rem 1.6rem 0.45rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--nm-text-dark);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 0.85em;
+}
+
+.nm-table-action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--nm-bg);
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nm-text-sub);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  margin-left: 3px;
+}
+
+.nm-table-action-btn:hover {
+  color: var(--nm-blue);
+  box-shadow: var(--nm-flat);
+  transform: translateY(-1px);
+}
+
+.nm-table-action-btn.btn-delete:hover {
+  color: #ef4444;
+}
+
+.nm-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nm-page-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--nm-bg);
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--nm-text-sub);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nm-page-btn.active {
+  box-shadow: var(--nm-inset-sm);
+  color: var(--nm-blue);
+}
+
+html.dark-theme .nm-cal-card,
+html.dark-theme .nm-details-card,
+html.dark-theme .nm-records-card,
+html.dark-theme .nm-inset-input,
+html.dark-theme .nm-inset-select,
+html.dark-theme .nm-page-btn,
+html.dark-theme .nm-table-action-btn {
+  background-color: var(--nm-bg) !important;
+  color: var(--nm-text-dark);
+}
+
+html.dark-theme .nm-cal-card,
+html.dark-theme .nm-details-card,
+html.dark-theme .nm-records-card {
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat) !important;
+}
+
+html.dark-theme .nm-inset-input,
+html.dark-theme .nm-inset-select {
+  background: var(--nm-bg) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+  color: var(--nm-text-dark) !important;
+}
+
+html.dark-theme .nm-inset-input::placeholder {
+  color: var(--nm-text-muted) !important;
+}
+
+html.dark-theme .nm-page-btn.active {
+  background: var(--nm-blue-light) !important;
+  color: var(--nm-blue) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+html.dark-theme .nm-cal-table th,
+html.dark-theme .nm-cal-table td {
+  color: var(--nm-text-sub);
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+html.dark-theme .nm-cal-table td {
+  color: var(--nm-text-dark);
+}
+
+html.dark-theme .nm-table-action-btn:hover {
+  box-shadow: var(--nm-flat) !important;
+}
+
+html.dark-theme .nm-service-pill,
+html.dark-theme .cal-appt-chip,
+html.dark-theme .cal-appt-chip.chip-selected {
+  background: var(--nm-surface-light) !important;
+  color: var(--nm-text-dark) !important;
+  border-color: rgba(148, 163, 184, 0.2) !important;
+  box-shadow: var(--nm-flat-sm) !important;
+}
+
+html.dark-theme .cal-appt-chip.chip-blue { border-left-color: #38bdf8 !important; }
+html.dark-theme .cal-appt-chip.chip-amber { border-left-color: #fbbf24 !important; }
+html.dark-theme .cal-appt-chip.chip-purple { border-left-color: #c4b5fd !important; }
+html.dark-theme .cal-appt-chip.chip-rose { border-left-color: #fb7185 !important; }
+html.dark-theme .cal-appt-chip.chip-green { border-left-color: #4ade80 !important; }
+html.dark-theme .cal-appt-chip.chip-pink { border-left-color: #f472b6 !important; }
+html.dark-theme .cal-appt-chip.chip-teal { border-left-color: #2dd4bf !important; }
+html.dark-theme .cal-appt-chip.chip-orange { border-left-color: #fb923c !important; }

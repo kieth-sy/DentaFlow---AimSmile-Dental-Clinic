@@ -1,0 +1,14 @@
+.role-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: #FFFFFF;
+  background: var(--primary);
+  padding: .3rem .7rem;
+  border-radius: var(--radius);
+  margin: 0 .3rem;
+}

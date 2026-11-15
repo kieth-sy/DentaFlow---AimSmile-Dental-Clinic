@@ -1,0 +1,748 @@
+/* ==========================================================================
+   AimSmile — Premium Neumorphic Design System
+   ========================================================================== */
+
+:root {
+  /* Neumorphic Color Canvas */
+  --nm-bg: #e5ecf4;
+  --nm-surface: #e5ecf4;
+  --nm-surface-light: #eef4fb;
+  --nm-surface-sunken: #dde5ef;
+  
+  /* Neumorphic Shadow Calculations */
+  --nm-shadow-dark: rgba(163, 177, 198, 0.48);
+  --nm-shadow-light: rgba(255, 255, 255, 0.95);
+  
+  --nm-flat: 6px 6px 14px var(--nm-shadow-dark), -6px -6px 14px var(--nm-shadow-light);
+  --nm-flat-sm: 3px 3px 8px var(--nm-shadow-dark), -3px -3px 8px var(--nm-shadow-light);
+  --nm-flat-lg: 12px 12px 28px var(--nm-shadow-dark), -12px -12px 28px var(--nm-shadow-light);
+  
+  --nm-inset: inset 3px 3px 6px var(--nm-shadow-dark), inset -3px -3px 6px var(--nm-shadow-light);
+  --nm-inset-sm: inset 2px 2px 4px var(--nm-shadow-dark), inset -2px -2px 4px var(--nm-shadow-light);
+  --nm-inset-deep: inset 4px 4px 9px var(--nm-shadow-dark), inset -4px -4px 9px var(--nm-shadow-light);
+
+  --nm-border: 1px solid rgba(255, 255, 255, 0.65);
+  --nm-border-subtle: 1px solid rgba(195, 207, 222, 0.4);
+
+  /* Primary Accent & Text */
+  --nm-blue: #2e68db;
+  --nm-blue-light: #e0ebf8;
+  --nm-blue-hover: #1e54c0;
+  
+  --nm-text-dark: #1e293b;
+  --nm-text-sub: #64748b;
+  --nm-text-muted: #94a3b8;
+
+  --nm-radius-card: 20px;
+  --nm-radius-pill: 9999px;
+  --nm-radius-sm: 12px;
+  
+  --sidebar-w: 248px;
+}
+
+html.dark-theme {
+  --nm-bg: #202a3a;
+  --nm-surface: #202a3a;
+  --nm-surface-light: #283548;
+  --nm-surface-sunken: #1a2331;
+
+  --nm-shadow-dark: rgba(15, 21, 31, 0.85);
+  --nm-shadow-light: rgba(52, 65, 84, 0.7);
+
+  --nm-flat: 6px 6px 14px var(--nm-shadow-dark), -6px -6px 14px var(--nm-shadow-light);
+  --nm-flat-sm: 3px 3px 8px var(--nm-shadow-dark), -3px -3px 8px var(--nm-shadow-light);
+  --nm-flat-lg: 12px 12px 28px var(--nm-shadow-dark), -12px -12px 28px var(--nm-shadow-light);
+
+  --nm-inset: inset 3px 3px 6px var(--nm-shadow-dark), inset -3px -3px 6px var(--nm-shadow-light);
+  --nm-inset-sm: inset 2px 2px 4px var(--nm-shadow-dark), inset -2px -2px 4px var(--nm-shadow-light);
+  --nm-inset-deep: inset 4px 4px 9px var(--nm-shadow-dark), inset -4px -4px 9px var(--nm-shadow-light);
+
+  --nm-border: 1px solid rgba(148, 163, 184, 0.14);
+  --nm-border-subtle: 1px solid rgba(148, 163, 184, 0.1);
+
+  --nm-blue: #78aaff;
+  --nm-blue-light: #263a56;
+  --nm-blue-hover: #a4c5ff;
+
+  --nm-text-dark: #e2e8f0;
+  --nm-text-sub: #cbd5e1;
+  --nm-text-muted: #9aacc2;
+}
+
+html.dark-theme,
+html.dark-theme body {
+  background-color: var(--nm-bg) !important;
+  color: var(--nm-text-dark) !important;
+  color-scheme: dark;
+}
+
+html.dark-theme .brand-text-aim {
+  color: #e2e8f0 !important;
+}
+
+html.dark-theme .brand-text-smile {
+  color: #60a5fa !important;
+}
+
+html.dark-theme .side-link:hover {
+  background: rgba(148, 163, 184, 0.08) !important;
+  color: var(--nm-text-dark) !important;
+}
+
+html.dark-theme .nm-search-input,
+html.dark-theme .nm-circle-btn,
+html.dark-theme .nm-badge,
+html.dark-theme .card-app,
+html.dark-theme .nm-card,
+html.dark-theme .sidebar,
+html.dark-theme .brand-pill-nm {
+  background: var(--nm-bg) !important;
+  border: var(--nm-border) !important;
+}
+
+html.dark-theme .nm-search-input {
+  box-shadow: var(--nm-inset) !important;
+}
+
+html.dark-theme .nm-profile-avatar,
+html.dark-theme .nm-profile-avatar-initials {
+  border-color: var(--nm-border) !important;
+}
+
+/* Base Neumorphic Overrides */
+html, body {
+  background-color: var(--nm-bg) !important;
+  color: var(--nm-text-dark) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  zoom: 0.94 !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Shell & Canvas */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--nm-bg);
+}
+
+.main {
+  margin-left: var(--sidebar-w);
+  flex: 1;
+  min-width: 0;
+  background-color: var(--nm-bg);
+  padding-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Neumorphic Sidebar
+   ========================================================================== */
+.sidebar {
+  width: var(--sidebar-w);
+  background-color: var(--nm-bg) !important;
+  border-right: var(--nm-border);
+  padding: 1rem 0.85rem !important;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 60;
+  box-shadow: 4px 0 16px rgba(163, 177, 198, 0.2);
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.sidebar nav,
+.sidebar-nav {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.sidebar nav::-webkit-scrollbar,
+.sidebar-nav::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.sidebar .brand,
+.brand-pill-nm {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  background: var(--nm-bg) !important;
+  border-radius: var(--nm-radius-pill) !important;
+  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 5px 5px 12px var(--nm-shadow-dark), -5px -5px 12px var(--nm-shadow-light) !important;
+  padding: 0.45rem 1.15rem 0.45rem 0.75rem !important;
+  margin: 0.1rem 0.1rem 0.9rem !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  width: fit-content !important;
+  max-width: 100% !important;
+}
+
+.brand-pill-nm:hover,
+.sidebar .brand:hover {
+  box-shadow: 6px 6px 15px var(--nm-shadow-dark), -6px -6px 15px var(--nm-shadow-light) !important;
+  transform: translateY(-1px);
+}
+
+.brand-pill-img {
+  width: 36px !important;
+  height: 36px !important;
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+}
+
+.brand-pill-text {
+  font-size: 1.38rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: baseline !important;
+}
+
+.brand-text-aim {
+  color: #1e293b !important;
+  font-weight: 800 !important;
+}
+
+.brand-text-smile {
+  color: #2563eb !important;
+  font-weight: 800 !important;
+}
+
+.brand-badge, .brand-logo-btn {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: var(--nm-bg) !important;
+  box-shadow: var(--nm-flat-sm) !important;
+  border: var(--nm-border) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--nm-blue) !important;
+  flex-shrink: 0;
+  font-size: 1.15rem;
+}
+
+.side-section {
+  font-size: 0.60rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.10em !important;
+  color: var(--nm-text-muted) !important;
+  padding: 0.75rem 0.8rem 0.25rem !important;
+  font-weight: 500 !important;
+}
+
+.side-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 0.45rem 0.85rem !important;
+  border-radius: var(--nm-radius-pill) !important;
+  color: var(--nm-text-sub) !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.12rem !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease !important;
+  position: relative !important;
+}
+
+.side-link i {
+  font-size: 1.05rem !important;
+  width: 20px !important;
+  text-align: center !important;
+}
+
+.side-link:hover {
+  background: rgba(255, 255, 255, 0.5) !important;
+  color: var(--nm-text-dark) !important;
+}
+
+.side-link.active {
+  background: var(--nm-blue-light) !important;
+  color: var(--nm-blue) !important;
+  font-weight: 700 !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+.side-link.active::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--nm-blue);
+}
+
+.sidebar .border-top {
+  border-top: var(--nm-border) !important;
+}
+
+/* ==========================================================================
+   Neumorphic Topbar
+   ========================================================================== */
+.topbar {
+  background: transparent !important;
+  border-bottom: none !important;
+  padding: 1.1rem 1.8rem 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 40 !important;
+}
+
+.nm-search-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.nm-search-wrap i {
+  position: absolute;
+  left: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--nm-text-muted);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.nm-search-input {
+  width: 100%;
+  background: var(--nm-bg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--nm-radius-pill);
+  box-shadow: var(--nm-inset);
+  padding: 0.62rem 1.2rem 0.62rem 2.6rem;
+  font-size: 0.85rem;
+  color: var(--nm-text-dark);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.nm-search-input::placeholder {
+  color: var(--nm-text-muted);
+}
+
+.nm-search-input:focus {
+  box-shadow: var(--nm-inset-deep);
+  border-color: rgba(46, 104, 219, 0.4);
+}
+
+.nm-circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--nm-bg);
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nm-text-sub);
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.nm-circle-btn:hover {
+  color: var(--nm-blue);
+  box-shadow: var(--nm-flat);
+  transform: translateY(-1px);
+}
+
+.nm-circle-btn:active {
+  box-shadow: var(--nm-inset-sm);
+  transform: translateY(0);
+}
+
+.nm-circle-btn .badge-dot {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 1.5px solid var(--nm-bg);
+}
+
+.nm-profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  padding: 0.2rem 0.4rem;
+}
+
+.nm-profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat-sm);
+}
+
+.nm-profile-avatar-initials {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--nm-blue-light);
+  color: var(--nm-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: var(--nm-border);
+  box-shadow: var(--nm-flat-sm);
+}
+
+.nm-profile-name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--nm-text-dark);
+  line-height: 1.2;
+}
+
+.nm-profile-role {
+  font-size: 0.7rem;
+  color: var(--nm-text-muted);
+}
+
+/* ==========================================================================
+   Neumorphic Content & Layout
+   ========================================================================== */
+.content {
+  padding: 1rem 1.8rem 2rem !important;
+}
+
+/* Page Header */
+.nm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nm-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--nm-text-dark);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.nm-subtitle {
+  font-size: 0.84rem;
+  color: var(--nm-text-sub);
+  margin-top: 0.2rem;
+}
+
+/* Segmented Control (Day | Week | Month | Year) */
+.nm-segmented {
+  display: inline-flex;
+  background: var(--nm-bg);
+  border-radius: var(--nm-radius-pill);
+  box-shadow: var(--nm-inset-sm);
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.nm-segment-item {
+  border: none;
+  background: transparent;
+  padding: 0.35rem 1.1rem;
+  border-radius: var(--nm-radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--nm-text-sub);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.nm-segment-item:hover {
+  color: var(--nm-text-dark);
+}
+
+.nm-segment-item.active {
+  background: var(--nm-bg);
+  color: var(--nm-blue);
+  font-weight: 700;
+  box-shadow: 2px 2px 6px var(--nm-shadow-dark), -2px -2px 6px var(--nm-shadow-light);
+}
+
+/* ==========================================================================
+   Neumorphic Cards
+   ========================================================================== */
+.card-app, .nm-card {
+  background: var(--nm-bg) !important;
+  border-radius: var(--nm-radius-card) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat) !important;
+  padding: 1.35rem !important;
+  position: relative;
+}
+
+.nm-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--nm-radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: var(--nm-border);
+  box-shadow: 2px 2px 5px var(--nm-shadow-dark), -2px -2px 5px var(--nm-shadow-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nm-badge.badge-green { color: #16a34a; background: var(--nm-bg); }
+.nm-badge.badge-blue { color: #2563eb; background: var(--nm-bg); }
+.nm-badge.badge-red { color: #dc2626; background: var(--nm-bg); }
+.nm-badge.badge-neutral { color: var(--nm-text-sub); background: var(--nm-bg); }
+
+/* Footer strip */
+.nm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--nm-text-muted);
+  padding: 1.25rem 0.25rem 0.5rem;
+}
+
+/* ==========================================================================
+   Neumorphic Tables & Forms
+   ========================================================================== */
+.table-app {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table-app th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--nm-text-muted);
+  padding: 0.75rem 1rem;
+  border-bottom: var(--nm-border);
+  font-weight: 800;
+}
+
+.table-app td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(195, 207, 222, 0.3);
+  vertical-align: middle;
+  color: var(--nm-text-dark);
+}
+
+.table-app tbody tr:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Neumorphic Buttons */
+.btn-app {
+  background: var(--nm-bg) !important;
+  color: var(--nm-blue) !important;
+  font-weight: 700 !important;
+  border-radius: var(--nm-radius-pill) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat-sm) !important;
+  padding: 0.6rem 1.4rem !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-app:hover {
+  box-shadow: var(--nm-flat) !important;
+  transform: translateY(-1px) !important;
+  color: var(--nm-blue-hover) !important;
+}
+
+.btn-app:active {
+  box-shadow: var(--nm-inset-sm) !important;
+  transform: translateY(0) !important;
+}
+
+.btn-soft {
+  background: var(--nm-bg) !important;
+  color: var(--nm-text-sub) !important;
+  font-weight: 600 !important;
+  border-radius: var(--nm-radius-pill) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat-sm) !important;
+  padding: 0.35rem 0.9rem !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main {
+    margin-left: 0;
+  }
+  .hamburger {
+    display: block !important;
+  }
+}
+
+/* Dark neumorphic surfaces and controls */
+html.dark-theme .app-shell,
+html.dark-theme .main,
+html.dark-theme .content,
+html.dark-theme .sidebar,
+html.dark-theme .topbar,
+html.dark-theme .nm-segmented {
+  background-color: var(--nm-bg) !important;
+  color: var(--nm-text-dark);
+}
+
+html.dark-theme .card-app,
+html.dark-theme .nm-card {
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat) !important;
+}
+
+html.dark-theme .nm-badge,
+html.dark-theme .nm-circle-btn,
+html.dark-theme .brand-pill-nm,
+html.dark-theme .btn-app,
+html.dark-theme .btn-ghost,
+html.dark-theme .btn-soft {
+  background: var(--nm-bg) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat-sm) !important;
+}
+
+html.dark-theme .nm-search-input {
+  background: var(--nm-bg) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+  color: var(--nm-text-dark) !important;
+}
+
+html.dark-theme .nm-search-input::placeholder {
+  color: var(--nm-text-muted) !important;
+}
+
+html.dark-theme .nm-segmented {
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+html.dark-theme .nm-segment-item.active,
+html.dark-theme .side-link.active {
+  background: var(--nm-blue-light) !important;
+  color: var(--nm-blue) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+html.dark-theme .side-link.active::after {
+  background-color: var(--nm-blue);
+}
+
+html.dark-theme .side-link:hover,
+html.dark-theme .table-app tbody tr:hover {
+  background: rgba(148, 163, 184, 0.08) !important;
+}
+
+html.dark-theme .table-app,
+html.dark-theme .table-app th,
+html.dark-theme .table-app td {
+  color: var(--nm-text-sub);
+  border-color: rgba(148, 163, 184, 0.14);
+}
+
+html.dark-theme .table-app td {
+  color: var(--nm-text-dark);
+}
+
+html.dark-theme .nm-badge.badge-green { color: #6ee7b7; }
+html.dark-theme .nm-badge.badge-blue { color: #93c5fd; }
+html.dark-theme .nm-badge.badge-red { color: #fda4af; }
+html.dark-theme .nm-badge.badge-neutral { color: var(--nm-text-sub); }
+
+html.dark-theme .btn-app,
+html.dark-theme .btn-ghost,
+html.dark-theme .btn-soft {
+  color: var(--nm-blue) !important;
+}
+
+html.dark-theme .brand-pill-nm {
+  background: var(--nm-bg) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat-sm) !important;
+}
+
+html.dark-theme .sidebar {
+  box-shadow: 4px 0 16px rgba(8, 12, 20, 0.35);
+}
+
+html.dark-theme .brand-pill-nm:hover,
+html.dark-theme .nm-circle-btn:hover {
+  box-shadow: var(--nm-flat) !important;
+}
+
+html.dark-theme .text-dark,
+html.dark-theme .text-slate,
+html.dark-theme h1,
+html.dark-theme h2,
+html.dark-theme h3,
+html.dark-theme h4,
+html.dark-theme h5,
+html.dark-theme h6 {
+  color: var(--nm-text-dark) !important;
+}
+
+html.dark-theme .text-muted,
+html.dark-theme .muted,
+html.dark-theme .side-section {
+  color: var(--nm-text-muted) !important;
+}
+
+html.dark-theme .form-control,
+html.dark-theme .form-select,
+html.dark-theme .form-control-app,
+html.dark-theme textarea {
+  background-color: var(--nm-bg) !important;
+  border-color: rgba(148, 163, 184, 0.2) !important;
+  color: var(--nm-text-dark) !important;
+  box-shadow: var(--nm-inset-sm);
+}
+
+html.dark-theme .form-control::placeholder,
+html.dark-theme textarea::placeholder {
+  color: var(--nm-text-muted);
+}

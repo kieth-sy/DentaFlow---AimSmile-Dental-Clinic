@@ -1,0 +1,219 @@
+.nm-kpi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 124px;
+}
+
+.nm-kpi-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.nm-kpi-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: var(--nm-bg);
+  border: var(--nm-border);
+  box-shadow: 3px 3px 7px var(--nm-shadow-dark), -3px -3px 7px var(--nm-shadow-light);
+}
+
+.nm-kpi-icon.icon-blue { color: #2e68db; }
+.nm-kpi-icon.icon-teal { color: #0d9488; }
+.nm-kpi-icon.icon-purple { color: #8b5cf6; }
+.nm-kpi-icon.icon-amber { color: #d97706; }
+
+.nm-kpi .nm-badge.badge-green {
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+.nm-kpi .nm-badge.badge-blue {
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+.nm-kpi .nm-badge.badge-red {
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+.nm-kpi .nm-badge.badge-neutral {
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-inset-sm) !important;
+}
+
+.nm-kpi-label {
+  font-size: 0.78rem;
+  color: var(--nm-text-sub);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.nm-kpi-val {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--nm-text-dark);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.nm-widget-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+
+.nm-widget-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--nm-text-dark);
+  margin: 0;
+}
+
+.nm-widget-subtitle {
+  font-size: 0.74rem;
+  color: var(--nm-text-muted);
+  margin-top: 0.2rem;
+}
+
+.nm-widget-link {
+  font-size: 0.74rem;
+  color: var(--nm-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nm-widget-link:hover {
+  text-decoration: underline;
+}
+
+.nm-donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.25rem 0;
+}
+
+.nm-donut-box {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  flex-shrink: 0;
+}
+
+.nm-donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.nm-donut-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--nm-text-dark);
+  line-height: 1;
+}
+
+.nm-donut-lbl {
+  font-size: 0.68rem;
+  color: var(--nm-text-sub);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.nm-donut-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nm-donut-info-lbl {
+  font-size: 0.75rem;
+  color: var(--nm-text-sub);
+  font-weight: 600;
+}
+
+.nm-donut-info-total {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--nm-text-dark);
+}
+
+.nm-empty-treatment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 175px;
+  padding: 1rem;
+}
+
+.nm-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--nm-bg);
+  border: var(--nm-border);
+  box-shadow: var(--nm-inset-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--nm-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.nm-empty-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--nm-text-dark);
+  margin-bottom: 0.2rem;
+}
+
+.nm-empty-desc {
+  font-size: 0.75rem;
+  color: var(--nm-text-sub);
+  margin-bottom: 0.6rem;
+}
+
+.nm-empty-meta {
+  font-size: 0.7rem;
+  color: var(--nm-text-muted);
+}
+
+html.dark-theme .nm-empty-icon {
+  background: var(--nm-bg) !important;
+  color: var(--nm-text-sub) !important;
+}
+
+html.dark-theme .nm-kpi {
+  background-color: var(--nm-bg) !important;
+  color: var(--nm-text-dark);
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat) !important;
+}
+
+html.dark-theme .nm-kpi-icon {
+  background: var(--nm-bg) !important;
+  border: var(--nm-border) !important;
+  box-shadow: var(--nm-flat-sm) !important;
+}
+
+html.dark-theme .nm-kpi-icon.icon-blue { color: #78aaff; }
+html.dark-theme .nm-kpi-icon.icon-teal { color: #5eead4; }
+html.dark-theme .nm-kpi-icon.icon-purple { color: #c4b5fd; }
+html.dark-theme .nm-kpi-icon.icon-amber { color: #fcd34d; }
