@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="app-shell">
+  <div class="sidebar-backdrop"></div>
+  <aside class="sidebar">
+    <a href="{% url 'accounts:redirect_dashboard' %}" class="brand-pill-nm">
+      <img src="{% static 'img/aimsmile_logo.png' %}" alt="AimSmile" class="brand-pill-img" width="36" height="36" style="width:36px; height:36px; max-width:36px; max-height:36px; object-fit:contain; flex-shrink:0;">
+      <span class="brand-pill-text"><span class="brand-text-aim">Aim</span><span class="brand-text-smile">Smile</span></span>
+    </a>
+
+    <nav class="flex-grow-1 sidebar-nav">
+      {% with r=user.role url_name=request.resolver_match.url_name %}
+      <div class="side-section">
+        {% if user.is_admin %}Admin Console{% elif r == 'dentist' %}Dentist Console{% elif r == 'receptionist' %}Front Desk{% else %}Patient Portal{% endif %}
+      </div>
+      <a class="side-link {% if 'dashboard' in url_name %}active{% endif %}" href="{% url 'accounts:redirect_dashboard' %}">
+        <i class="bi bi-grid-fill"></i>Dashboard
+      </a>
+
+      {% if r == 'patient' %}
+        <div class="side-section">My Care</div>
+        <a class="side-link" href="{% url 'clinic:appointment_create' %}"><i class="bi bi-calendar-plus"></i>Book Appointment</a>
+        <a class="side-link {% if url_name == 'appointment_list' %}active{% endif %}" href="{% url 'clinic:appointment_list' %}"><i class="bi bi-calendar2-week"></i>My Appointments</a>
+        <a class="side-link {% if url_name == 'treatment_list' %}active{% endif %}" href="{% url 'clinic:treatment_list' %}"><i class="bi bi-clipboard2-heart"></i>My Treatments</a>
+        <a class="side-link {% if 'prescription' in url_name %}active{% endif %}" href="{% url 'clinic:prescription_list' %}"><i class="bi bi-capsule"></i>Prescriptions</a>
+        <a class="side-link {% if 'invoice' in url_name %}active{% endif %}" href="{% url 'clinic:invoice_list' %}"><i class="bi bi-receipt"></i>My Bills</a>
+        <a class="side-link" href="{% url 'clinic:review_create' %}"><i class="bi bi-star"></i>Leave Review</a>
+      {% endif %}
+
+      {% if r == 'dentist' %}
+        <div class="side-section">Clinical</div>
+        <a class="side-link {% if url_name == 'appointment_list' %}active{% endif %}" href="{% url 'clinic:appointment_list' %}"><i class="bi bi-calendar2-week"></i>Appointments</a>
+        <a class="side-link {% if 'patient' in url_name %}active{% endif %}" href="{% url 'clinic:patient_list' %}"><i class="bi bi-people"></i>Patients</a>
+        <a class="side-link {% if 'treatment' in url_name %}active{% endif %}" href="{% url 'clinic:treatment_list' %}"><i class="bi bi-clipboard2-heart"></i>Treatments</a>
+        <a class="side-link {% if 'prescription' in url_name %}active{% endif %}" href="{% url 'clinic:prescription_list' %}"><i class="bi bi-capsule"></i>Prescriptions</a>
+      {% endif %}
+
+      {% if r == 'receptionist' %}
+        <div class="side-section">Front Desk</div>
+        <a class="side-link {% if url_name == 'appointment_list' %}active{% endif %}" href="{% url 'clinic:appointment_list' %}"><i class="bi bi-calendar2-week"></i>Appointments</a>
+        <a class="side-link {% if 'patient' in url_name %}active{% endif %}" href="{% url 'clinic:patient_list' %}"><i class="bi bi-people"></i>Patients</a>
+        <a class="side-link {% if 'invoice' in url_name %}active{% endif %}" href="{% url 'clinic:invoice_list' %}"><i class="bi bi-receipt"></i>Invoices</a>
+        <a class="side-link {% if 'inventory' in url_name %}active{% endif %}" href="{% url 'clinic:inventory_list' %}"><i class="bi bi-box-seam"></i>Inventory</a>
+      {% endif %}
+
+      {% if user.is_admin %}
+        <div class="side-section">Administration</div>
+        <a class="side-link {% if url_name == 'reports' %}active{% endif %}" href="{% url 'manage_panel:reports' %}"><i class="bi bi-graph-up"></i>Reports</a>
+        <a class="side-link {% if 'user' in url_name %}active{% endif %}" href="{% url 'manage_panel:user_list' %}"><i class="bi bi-person"></i>Users</a>
+        <a class="side-link {% if 'services' in request.path %}active{% endif %}" href="{% url 'manage_panel:resource_list' slug='services' %}"><i class="bi bi-clipboard2-pulse"></i>Services</a>
+        <a class="side-link {% if 'inventory' in request.path %}active{% endif %}" href="{% url 'manage_panel:resource_list' slug='inventory' %}"><i class="bi bi-box-seam"></i>Inventory</a>
+        <a class="side-link {% if 'reviews' in request.path %}active{% endif %}" href="{% url 'manage_panel:resource_list' slug='reviews' %}"><i class="bi bi-star"></i>Reviews</a>
+        <div class="side-section">Clinical</div>
+        <a class="side-link {% if url_name == 'appointment_list' %}active{% endif %}" href="{% url 'clinic:appointment_list' %}"><i class="bi bi-calendar2-week"></i>Appointments</a>
+        <a class="side-link {% if 'patient' in url_name %}active{% endif %}" href="{% url 'clinic:patient_list' %}"><i class="bi bi-people"></i>Patients</a>
+        <a class="side-link {% if 'treatment' in url_name %}active{% endif %}" href="{% url 'clinic:treatment_list' %}"><i class="bi bi-clipboard2-check"></i>Treatments</a>
+        <a class="side-link {% if 'prescription' in url_name %}active{% endif %}" href="{% url 'clinic:prescription_list' %}"><i class="bi bi-capsule"></i>Prescriptions</a>
+        <a class="side-link {% if 'invoice' in url_name %}active{% endif %}" href="{% url 'clinic:invoice_list' %}"><i class="bi bi-receipt"></i>Invoices</a>
+      {% endif %}
+
+      <div class="side-section">AI Assistant</div>
+      <a class="side-link {% if 'hub' in url_name %}active{% endif %}" href="{% url 'aiassistant:hub' %}"><i class="bi bi-robot"></i>AI Hub</a>
+      <a class="side-link {% if 'symptom' in url_name %}active{% endif %}" href="{% url 'aiassistant:symptom_checker' %}"><i class="bi bi-heart-pulse"></i>Symptom Checker</a>
+      <a class="side-link {% if 'cost' in url_name %}active{% endif %}" href="{% url 'aiassistant:cost_estimator' %}"><i class="bi bi-calculator"></i>Cost Estimator</a>
+      <a class="side-link {% if 'chatbot' in url_name %}active{% endif %}" href="{% url 'aiassistant:chatbot' %}"><i class="bi bi-chat-dots"></i>DentaBot</a>
+      {% endwith %}
+    </nav>
+
+    <div class="mt-auto pt-3 border-top">
+      <a class="side-link" href="{% url 'accounts:profile' %}"><i class="bi bi-person"></i>My Profile</a>
+      <a class="side-link" href="{% url 'pages:home' %}"><i class="bi bi-globe"></i>Public Site</a>
+      <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}
+        <button class="side-link w-100 border-0 bg-transparent" type="submit"><i class="bi bi-box-arrow-right"></i>Logout</button>
+      </form>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="hamburger nm-circle-btn d-lg-none" type="button"><i class="bi bi-list"></i></button>
+
+      <div class="nm-search-wrap">
+        <i class="bi bi-search"></i>
+        <input type="text" class="nm-search-input" placeholder="Search patient, appointments, records..." aria-label="Search">
+      </div>
+
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <button class="nm-circle-btn" id="themeToggleBtn" type="button" title="Toggle dark/light mode">
+          <i class="bi bi-moon"></i>
+        </button>
+
+        <button class="nm-circle-btn position-relative" type="button" title="Notifications">
+          <i class="bi bi-bell"></i>
+          <span class="badge-dot"></span>
+        </button>
+
+        <a href="{% url 'accounts:profile' %}" class="nm-profile-pill">
+          {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" alt="{{ user.display_name }}" class="nm-profile-avatar">
+          {% else %}
+            <div class="nm-profile-avatar-initials">{{ user.initials }}</div>
+          {% endif %}
+          <div class="d-none d-sm-block text-start">
+            <div class="nm-profile-name">{{ user.display_name }}</div>
+            <div class="nm-profile-role">{{ user.get_role_display }}</div>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <main class="content">
+      {% block app_content %}{% endblock %}
+    </main>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  document.querySelectorAll('.side-link').forEach(l => l.addEventListener('click', () => {
+    if (window.innerWidth <= 992) {
+      document.querySelector('.sidebar')?.classList.remove('open');
+      document.querySelector('.sidebar-backdrop')?.classList.remove('show');
+    }
+  }));
+
+  // Neumorphic segmented control interactive toggle
+  document.querySelectorAll('.nm-segmented .nm-segment-item').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const parent = this.closest('.nm-segmented');
+      parent.querySelectorAll('.nm-segment-item').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+{% block app_scripts %}{% endblock %}
+{% endblock %}

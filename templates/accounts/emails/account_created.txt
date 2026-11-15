@@ -1,0 +1,13 @@
+Hello {{ name }},
+
+An AimSmile clinic administrator created an account for you.
+
+Username: {{ username }}
+
+Set your password using this one-time link:
+{{ setup_url }}
+
+The link expires after three days. Once you set your password, you can sign in here:
+{{ login_url }}
+
+If you were not expecting this account, please contact the clinic.
